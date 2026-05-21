@@ -11,6 +11,7 @@ dependencies = [
     "instruments",
     "controllers",
     "photonic_protocols",
+    "atto_device",
 ]
 
 [tool.uv.sources]
@@ -19,6 +20,7 @@ photonicdrivers = { path = "NQCP-Phot-Git-Drivers", editable = true }
 instruments = { path = "NQCP-Phot-Git-Instruments", editable = true }
 controllers = { path = "NQCP-Phot-Git-Controllers", editable = true }
 photonic_protocols = { path = "NQCP-Phot-Git-Protocols", editable = true }
+atto_device = { path = "C:/Users/NQCPQP/attocube/Software/attoDRY800_Software/api_atto-device-python_1.0.12/atto_device-1.12.0", editable = false }
 
 [tool.uv]
 required-environments = ["sys_platform == 'win32' and platform_machine == 'AMD64'"]

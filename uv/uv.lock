@@ -15,9 +15,6 @@ required-markers = [
     "platform_machine == 'AMD64' and sys_platform == 'win32'",
 ]
 
-[options]
-prerelease-mode = "allow"
-
 [[package]]
 name = "alembic"
 version = "1.18.4"
@@ -88,6 +85,11 @@ sdist = { url = "https://files.pythonhosted.org/packages/be/a5/8e3f9b6771b0b4085
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d2/39/e7eaf1799466a4aef85b6a4fe7bd175ad2b1c6345066aa33f1f58d4b18d0/asttokens-3.0.1-py3-none-any.whl", hash = "sha256:15a3ebc0f43c2d0a50eeafea25e19046c68398e487b9f1f5b517f7c0f40f976a", size = 27047, upload-time = "2025-11-15T16:43:16.109Z" },
 ]
+
+[[package]]
+name = "atto-device"
+version = "1.12.0"
+source = { directory = "C:/Users/NQCPQP/attocube/Software/attoDRY800_Software/api_atto-device-python_1.0.12/atto_device-1.12.0" }
 
 [[package]]
 name = "attrs"
@@ -764,6 +766,7 @@ name = "gitrepositories"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "atto-device" },
     { name = "controllers" },
     { name = "instruments" },
     { name = "ipykernel" },
@@ -774,6 +777,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "atto-device", directory = "C:/Users/NQCPQP/attocube/Software/attoDRY800_Software/api_atto-device-python_1.0.12/atto_device-1.12.0" },
     { name = "controllers", editable = "NQCP-Phot-Git-Controllers" },
     { name = "instruments", editable = "NQCP-Phot-Git-Instruments" },
     { name = "ipykernel", specifier = ">=7.2.0" },
