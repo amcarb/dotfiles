@@ -1,0 +1,24 @@
+[project]
+name = "gitrepositories"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ipykernel>=7.2.0",
+    "labserver",
+    "photonicdrivers",
+    "instruments",
+    "controllers",
+    "photonic_protocols",
+]
+
+[tool.uv.sources]
+labserver = { path = "NQCP-Phot-Git-LabServer", editable = true }
+photonicdrivers = { path = "NQCP-Phot-Git-Drivers", editable = true }
+instruments = { path = "NQCP-Phot-Git-Instruments", editable = true }
+controllers = { path = "NQCP-Phot-Git-Controllers", editable = true }
+photonic_protocols = { path = "NQCP-Phot-Git-Protocols", editable = true }
+
+[tool.uv]
+required-environments = ["sys_platform == 'win32' and platform_machine == 'AMD64'"]
