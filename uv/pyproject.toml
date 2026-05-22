@@ -12,6 +12,7 @@ dependencies = [
     "controllers",
     "photonic_protocols",
     "atto_device",
+    "pyvisa-py>=0.8.1",
 ]
 
 [tool.uv.sources]
