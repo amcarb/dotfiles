@@ -1,0 +1,17 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda",
+    "python.analysis.extraPaths": [
+        "./NQCP-Phot-Git-Drivers",
+        "./NQCP-Phot-Git-Instruments",
+        "./NQCP-Phot-Git-LabServer",
+        "./NQCP-Phot-Git-Controllers"
+    ],
+    "python-envs.pythonProjects": [
+        {
+            "path": ".",
+            "envManager": "ms-python.python:venv",
+            "packageManager": "ms-python.python:pip"
+        }
+    ]
+}
