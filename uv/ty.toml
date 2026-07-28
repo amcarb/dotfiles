@@ -4,5 +4,6 @@ extra-paths = [
     "./NQCP-Phot-Git-Instruments",
     "./NQCP-Phot-Git-LabServer",
     "./NQCP-Phot-Git-Controllers",
-    "./NQCP-Phot-Git-GrafanaLogging"
+    "./NQCP-Phot-Git-GrafanaLogging",
+    "./NQCP-Phot-Git-Protocols"
 ]
