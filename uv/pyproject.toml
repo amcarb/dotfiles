@@ -3,26 +3,72 @@ name = "gitrepositories"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.13,<3.14"
 dependencies = [
-    "ipykernel>=7.2.0",
-    "labserver",
+    # all shared workspace members (Simulations is excluded)
+    "controllers",
     "photonicdrivers",
     "instruments",
-    "controllers",
+    "labserver",
     "photonic_protocols",
-    "atto_device",
+    "analysis",
+    "grafanaLogger",
+    "spa_analysis",
+    "nqcp-query",
+    # shared notebook / plotting / misc tools
+    "ipykernel>=7.2.0",
     "pyvisa-py>=0.8.1",
     "openpyxl>=3.1.5",
+    "plotly>=6.9.0",
+    "dash>=4.4.1",
+    "pandas>=3.0.5",
+    "matplotlib>=3.11.1",
+    "ipympl>=0.10.0",
+    "qdrive==0.3.0b5",
+    "hyperspy>=2.4.0",
+    "numba>=0.66.0",
+    "plotly>=6.9.0",
+    "dash>=4.4.1",
+    "anywidget>=0.1.0",
 ]
 
+[project.optional-dependencies]
+# attocube (N: share) and the private-feed upload package are optional so that a PC
+# lacking the share / Azure credentials can still `uv sync` with no extras.
+attocube = ["photonicdrivers[attocube]"]
+upload = ["analysis[upload]", "nqcp-upload"]
+
+[[tool.uv.index]]
+# Private NQCP Azure DevOps Artifacts feed. `explicit`: only the packages sourced to it below are
+# fetched from here; everything else (incl. build tools) comes from PyPI. This keeps the feed out of
+# a base `uv sync` entirely, so a PC without feed credentials can still sync the base environment.
+name = "nqcp_package_index"
+url = "https://pkgs.dev.azure.com/NQCP/NQCP/_packaging/NQCP_Tier2/pypi/simple/"
+explicit = true
+
 [tool.uv.sources]
-labserver = { path = "NQCP-Phot-Git-LabServer", editable = true }
-photonicdrivers = { path = "NQCP-Phot-Git-Drivers", editable = true }
-instruments = { path = "NQCP-Phot-Git-Instruments", editable = true }
-controllers = { path = "NQCP-Phot-Git-Controllers", editable = true }
-photonic_protocols = { path = "NQCP-Phot-Git-Protocols", editable = true }
-atto_device = { path = "C:/Users/NQCPQP/attocube/Software/attoDRY800_Software/api_atto-device-python_1.0.12/atto_device-1.12.0", editable = false }
+controllers = { workspace = true }
+photonicdrivers = { workspace = true }
+instruments = { workspace = true }
+labserver = { workspace = true }
+photonic_protocols = { workspace = true }
+analysis = { workspace = true }
+grafanaLogger = { workspace = true }
+spa_analysis = { workspace = true }
+nqcp-upload = { git = "https://dev.azure.com/NQCP/NQCP/_git/NQCP-dp-git-NQCPupload" }
+nqcp-query = { git = "https://dev.azure.com/NQCP/NQCP/_git/NQCP-dp-git-NQCPquery" }
+api4labguru = { git = "https://dev.azure.com/NQCP/NQCP/_git/NQCP-dp-git-API4LabGuru"}
+
+[tool.uv.workspace]
+members = ["NQCP-Phot-Git-*", "NQCP-Char-git-*"]
+exclude = ["NQCP-Phot-Git-Simulations"]
 
 [tool.uv]
 required-environments = ["sys_platform == 'win32' and platform_machine == 'AMD64'"]
+keyring-provider = "subprocess"
+package = false
+# Workspace-wide resolver settings must live at the root (uv ignores [tool.uv] resolver
+# settings in non-root members). Mirrored from NQCP-Phot-Git-Drivers, which keeps its own
+# copies for when it is locked standalone.
+prerelease = "allow"
+constraint-dependencies = ["pyqt5-qt5<5.15.18; sys_platform == 'win32' and platform_machine == 'AMD64'"]
