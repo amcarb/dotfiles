@@ -35,8 +35,7 @@ dependencies = [
 # attocube (N: share) and the private-feed upload package are optional so that a PC
 # lacking the share / Azure credentials can still `uv sync` with no extras.
 attocube = ["photonicdrivers[attocube]"]
-upload = ["analysis[upload]", "nqcp-upload"]
-char = ["spa_analysis"]
+upload = ["analysis[upload]", "nqcp-upload", "api4labguru"]
 
 [[tool.uv.index]]
 # Private NQCP Azure DevOps Artifacts feed. `explicit`: only the packages sourced to it below are
@@ -54,7 +53,6 @@ labserver = { workspace = true }
 photonic_protocols = { workspace = true }
 analysis = { workspace = true }
 grafanaLogger = { workspace = true }
-spa_analysis = { workspace = true }
 nqcp-upload = { git = "https://dev.azure.com/NQCP/NQCP/_git/NQCP-dp-git-NQCPupload" }
 nqcp-query = { git = "https://dev.azure.com/NQCP/NQCP/_git/NQCP-dp-git-NQCPquery" }
 api4labguru = { git = "https://dev.azure.com/NQCP/NQCP/_git/NQCP-dp-git-API4LabGuru"}

@@ -24,7 +24,6 @@ members = [
     "labserver",
     "photonic-protocols",
     "photonicdrivers",
-    "spa-analysis",
 ]
 constraints = [{ name = "pyqt5-qt5", marker = "platform_machine == 'AMD64' and sys_platform == 'win32'", specifier = "<5.15.18" }]
 
@@ -1277,11 +1276,9 @@ dependencies = [
 attocube = [
     { name = "photonicdrivers", extra = ["attocube"] },
 ]
-char = [
-    { name = "spa-analysis" },
-]
 upload = [
     { name = "analysis", extra = ["upload"] },
+    { name = "api4labguru" },
     { name = "nqcp-upload" },
 ]
 
@@ -1290,6 +1287,7 @@ requires-dist = [
     { name = "analysis", editable = "NQCP-Phot-Git-Analysis" },
     { name = "analysis", extras = ["upload"], marker = "extra == 'upload'", editable = "NQCP-Phot-Git-Analysis" },
     { name = "anywidget", specifier = ">=0.1.0" },
+    { name = "api4labguru", marker = "extra == 'upload'", git = "https://dev.azure.com/NQCP/NQCP/_git/NQCP-dp-git-API4LabGuru" },
     { name = "controllers", editable = "NQCP-Phot-Git-Controllers" },
     { name = "dash", specifier = ">=4.4.1" },
     { name = "grafanalogger", editable = "NQCP-Phot-Git-GrafanaLogging" },
@@ -1310,9 +1308,8 @@ requires-dist = [
     { name = "plotly", specifier = ">=6.9.0" },
     { name = "pyvisa-py", specifier = ">=0.8.1" },
     { name = "qdrive", specifier = "==0.3.0b5" },
-    { name = "spa-analysis", marker = "extra == 'char'", editable = "NQCP-Char-git-PhotAnalysisSPA" },
 ]
-provides-extras = ["attocube", "upload", "char"]
+provides-extras = ["attocube", "upload"]
 
 [[package]]
 name = "grafanalogger"
@@ -4435,107 +4432,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/d9/38/e12680bbe6b4f8f3d
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0f/2c/437fe806897c2d6cfdc3ee43a18da8bf8e568530a4ae9bac781541ca9896/soupsieve-2.9.1-py3-none-any.whl", hash = "sha256:4f4477399246b7a0c720a88ca2454b11cd6bb9ae4c9d170140786e916776c14c", size = 37404, upload-time = "2026-07-21T16:57:16.421Z" },
 ]
-
-[[package]]
-name = "spa-analysis"
-source = { editable = "NQCP-Char-git-PhotAnalysisSPA" }
-dependencies = [
-    { name = "api4labguru" },
-    { name = "ipykernel" },
-    { name = "lmfit" },
-    { name = "matplotlib" },
-    { name = "nqcp-upload" },
-    { name = "numpy" },
-    { name = "pandas" },
-    { name = "pint" },
-    { name = "qdrive" },
-    { name = "scipy" },
-    { name = "versioningit" },
-]
-
-[package.optional-dependencies]
-ci = [
-    { name = "autodocsumm" },
-    { name = "coverage" },
-    { name = "deepdiff" },
-    { name = "hypothesis" },
-    { name = "ipykernel" },
-    { name = "ipywidgets" },
-    { name = "mypy" },
-    { name = "nbsphinx" },
-    { name = "pytest" },
-    { name = "pytest-asyncio" },
-    { name = "pytest-cov" },
-    { name = "pytest-mock" },
-    { name = "pytest-rerunfailures" },
-    { name = "pytest-xdist" },
-    { name = "sphinx" },
-    { name = "sphinx-favicon" },
-    { name = "sphinx-issues" },
-    { name = "sphinx-jsonschema" },
-    { name = "sphinx-rtd-theme" },
-]
-docs = [
-    { name = "autodocsumm" },
-    { name = "ipykernel" },
-    { name = "ipywidgets" },
-    { name = "nbsphinx" },
-    { name = "sphinx" },
-    { name = "sphinx-favicon" },
-    { name = "sphinx-issues" },
-    { name = "sphinx-jsonschema" },
-    { name = "sphinx-rtd-theme" },
-]
-test = [
-    { name = "coverage" },
-    { name = "deepdiff" },
-    { name = "hypothesis" },
-    { name = "mypy" },
-    { name = "pytest" },
-    { name = "pytest-asyncio" },
-    { name = "pytest-cov" },
-    { name = "pytest-mock" },
-    { name = "pytest-rerunfailures" },
-    { name = "pytest-xdist" },
-    { name = "sphinx" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "api4labguru", git = "https://dev.azure.com/NQCP/NQCP/_git/NQCP-dp-git-API4LabGuru" },
-    { name = "autodocsumm", marker = "extra == 'docs'", specifier = ">=0.2.9" },
-    { name = "coverage", extras = ["toml"], marker = "extra == 'test'", specifier = ">=6.3.0" },
-    { name = "deepdiff", marker = "extra == 'test'", specifier = ">=5.0.2" },
-    { name = "hypothesis", marker = "extra == 'test'", specifier = ">=6.130.0" },
-    { name = "ipykernel", specifier = ">=7.0.0" },
-    { name = "ipykernel", marker = "extra == 'docs'", specifier = ">=6.12.0" },
-    { name = "ipywidgets", marker = "extra == 'docs'", specifier = ">=8.0.0,<9.0.0" },
-    { name = "lmfit", specifier = ">=1.3.4" },
-    { name = "matplotlib", specifier = ">=3.10.7" },
-    { name = "mypy", marker = "extra == 'test'", specifier = ">=1.16.0" },
-    { name = "nbsphinx", marker = "extra == 'docs'", specifier = ">=0.8.9" },
-    { name = "nqcp-upload", git = "https://dev.azure.com/NQCP/NQCP/_git/NQCP-dp-git-NQCPupload" },
-    { name = "numpy", specifier = ">=2.3.3" },
-    { name = "pandas", specifier = ">=2.3.3" },
-    { name = "pint", specifier = ">=0.25" },
-    { name = "pytest", marker = "extra == 'test'", specifier = ">=8.2.0" },
-    { name = "pytest-asyncio", marker = "extra == 'test'", specifier = ">=0.24.0" },
-    { name = "pytest-cov", marker = "extra == 'test'", specifier = ">=4.1.0" },
-    { name = "pytest-mock", marker = "extra == 'test'", specifier = ">=3.12.0" },
-    { name = "pytest-rerunfailures", marker = "extra == 'test'", specifier = ">=10.3" },
-    { name = "pytest-xdist", marker = "extra == 'test'", specifier = ">=3.1.0" },
-    { name = "qdrive", specifier = ">=0.2.51" },
-    { name = "scipy", specifier = ">=1.16.2" },
-    { name = "spa-analysis", extras = ["docs", "test"], marker = "extra == 'ci'", editable = "NQCP-Char-git-PhotAnalysisSPA" },
-    { name = "sphinx", marker = "extra == 'docs'", specifier = ">=7.3.5" },
-    { name = "sphinx", marker = "extra == 'test'", specifier = ">=4.5.0" },
-    { name = "sphinx-favicon", marker = "extra == 'docs'", specifier = ">=1.0" },
-    { name = "sphinx-issues", marker = "extra == 'docs'", specifier = ">=3.0.1" },
-    { name = "sphinx-jsonschema", marker = "extra == 'docs'", specifier = ">=1.19.1" },
-    { name = "sphinx-rtd-theme", marker = "extra == 'docs'", specifier = ">=1.0.0" },
-    { name = "versioningit", specifier = ">=2.2.1" },
-]
-provides-extras = ["test", "docs", "ci"]
 
 [[package]]
 name = "sphinx"
