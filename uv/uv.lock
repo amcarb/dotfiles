@@ -1271,12 +1271,14 @@ dependencies = [
     { name = "plotly" },
     { name = "pyvisa-py" },
     { name = "qdrive" },
-    { name = "spa-analysis" },
 ]
 
 [package.optional-dependencies]
 attocube = [
     { name = "photonicdrivers", extra = ["attocube"] },
+]
+char = [
+    { name = "spa-analysis" },
 ]
 upload = [
     { name = "analysis", extra = ["upload"] },
@@ -1308,9 +1310,9 @@ requires-dist = [
     { name = "plotly", specifier = ">=6.9.0" },
     { name = "pyvisa-py", specifier = ">=0.8.1" },
     { name = "qdrive", specifier = "==0.3.0b5" },
-    { name = "spa-analysis", editable = "NQCP-Char-git-PhotAnalysisSPA" },
+    { name = "spa-analysis", marker = "extra == 'char'", editable = "NQCP-Char-git-PhotAnalysisSPA" },
 ]
-provides-extras = ["attocube", "upload"]
+provides-extras = ["attocube", "upload", "char"]
 
 [[package]]
 name = "grafanalogger"
