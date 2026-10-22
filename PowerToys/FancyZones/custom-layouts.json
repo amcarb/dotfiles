@@ -1,0 +1,57 @@
+{
+  "custom-layouts": [
+    {
+      "uuid": "{B5E491DB-2ECD-4B64-AB36-597752978A86}",
+      "name": "Server GUI",
+      "type": "grid",
+      "info": {
+        "rows": 2,
+        "columns": 2,
+        "rows-percentage": [
+          4950,
+          5050
+        ],
+        "columns-percentage": [
+          3333,
+          6667
+        ],
+        "cell-child-map": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "show-spacing": true,
+        "spacing": 5,
+        "sensitivity-radius": 20
+      }
+    },
+    {
+      "uuid": "{A529DAB9-552F-41C0-895E-CDF4505D82B6}",
+      "name": "Unique",
+      "type": "grid",
+      "info": {
+        "rows": 1,
+        "columns": 1,
+        "rows-percentage": [
+          10000
+        ],
+        "columns-percentage": [
+          10000
+        ],
+        "cell-child-map": [
+          [
+            0
+          ]
+        ],
+        "show-spacing": true,
+        "spacing": 5,
+        "sensitivity-radius": 20
+      }
+    }
+  ]
+}
