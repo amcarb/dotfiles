@@ -8,6 +8,12 @@ Dotfiles for setting up Lab PCs
 
 # Useful infos
 
+`winget` install:
+- `winget install --id Microsoft.PowerShell --installer-type wix`
+- `winget install JanDeDobbeleer.OhMyPosh --source winget`
+- `oh-my-posh font install meslo`
+- `winget install --id Microsoft.PowerToys --source winget`
+
 ## Powershell
 
 Place the `PowerShell` folder in the path  `C:\Users\usr\Documents\PowerShell`.
