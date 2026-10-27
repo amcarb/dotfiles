@@ -1,0 +1,6 @@
+{
+  "permissions": {
+    "allow": ["Read(/NQCP-Phot-Git-*/**)"],
+    "deny": ["Read(/NQCP-UHV-Tech.wiki/**)"]
+  }
+}
